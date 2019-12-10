@@ -169,6 +169,7 @@ class PingActivity(commands.Cog):
 
         await asyncio.sleep(1800)
         logger.info("Starting presence loop.")
+
     @commands.command()
     @checks.has_permissions(PermissionLevel.ADMINISTRATOR)
     @utils.trigger_typing
