@@ -1,8 +1,6 @@
 import discord
 from discord.enums import ActivityType, Status
 from discord.ext import commands, tasks
-
-import asyncio
 import logging
 
 logger = logging.getLogger("Modmail")
@@ -51,7 +49,7 @@ class PingActivity(commands.Cog):
     @presence_loop.before_loop
     async def before_presence_loop(self):
         await self._set_presence()
-        await asyncio.sleep(1)
+        await self.bot.wait_until_ready()
             
 
 def setup(bot):
