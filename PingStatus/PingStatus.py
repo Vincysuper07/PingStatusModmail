@@ -3,9 +3,9 @@ from discord.enums import ActivityType, Status
 from discord.ext import commands, tasks
 
 import asyncio
-from logger import Logger
+import logging
 
-logger = Logger(__main__)
+logger = logging.getLogger("Modmail")
 
 class PingActivity(commands.Cog):
       
