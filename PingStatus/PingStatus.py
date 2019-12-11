@@ -16,7 +16,7 @@ class PingActivity(commands.Cog):
         status = self.bot.config.get("status")
         activity_type = self.bot.config.get("activity_type")
         url = None
-        ping = f"{bot.ws.latency * 1000:.4f} ms"
+        ping = f"{self.bot.ws.latency * 1000:.4f} ms"
         activity_message = ((self.bot.config["activity_message"]).format(ping)).strip()
         if activity_type is not None and not activity_message:
             logger.warning(
