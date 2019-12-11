@@ -2,6 +2,8 @@ import discord
 from discord.enums import ActivityType, Status
 from discord.ext import commands, tasks
 
+import asyncio
+
 class PingActivity(commands.Cog):
       
     def __init__(self, bot):
@@ -36,7 +38,7 @@ class PingActivity(commands.Cog):
 
         return activity, status
 
-    @tasks.loop(minutes=10)
+    @tasks.loop(seconds=10)
     async def presence_loop(self):
         """Set presence to the configured value every 10 minutes."""
         logger.debug("Resetting presence.")
@@ -45,7 +47,7 @@ class PingActivity(commands.Cog):
     @presence_loop.before_loop
     async def before_presence_loop(self):
         await self._set_presence()
-        await self.bot.wait_for_connected() 
+        await asyncio.sleep(1)
             
 
 def setup(bot):
