@@ -11,34 +11,7 @@ class PingActivity(commands.Cog):
             self.bot = bot
             
     async def _set_presence(self):
-        status = self.bot.config.get("status")
-        activity_type = self.bot.config.get("activity_type")
-        url = None
-        ping = f"{self.bot.ws.latency * 1000:.4f} ms"
-        activity_message = ((self.bot.config["activity_message"]).format(ping)).strip()
-        if activity_type is not None and not activity_message:
-            logger.warning(
-                'No activity message found whilst activity is provided, defaults to "Modmail".'
-            )
-            activity_message = "Modmail"
-
-        if activity_type == ActivityType.listening:
-            if activity_message.lower().startswith("to "):
-                # The actual message is after listening to [...]
-                # discord automatically add the "to"
-                activity_message = activity_message[3:].strip()
-        elif activity_type == ActivityType.streaming:
-            url = self.bot.config["twitch_url"]
-
-        if activity_type is not None:
-            activity = discord.Activity(
-                type=activity_type, name=activity_message, url=url
-            )
-        else:
-            activity = None
-        await self.bot.change_presence(activity=activity, status=status)
-
-        return activity, status
+        await bot.change_presence(status=status, activity=discord.Activity(name=f"testù {bot.ws.latency * 1000:.4f}", type=discord.ActivityType.streaming, url="https://twitch.tv/testu"))
 
     @tasks.loop(seconds=10)
     async def presence_loop(self):
