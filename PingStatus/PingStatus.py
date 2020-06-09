@@ -11,7 +11,7 @@ class PingActivity(commands.Cog):
             self.bot = bot
             
     async def _set_presence(self):
-        await bot.change_presence(status=status, activity=discord.Activity(name=f"testù {bot.ws.latency * 1000:.4f}", type=discord.ActivityType.streaming, url="https://twitch.tv/testu"))
+        await bot.change_presence(status=discord.Status.online, activity=discord.Activity(name=f"testù {len(bot.guilds)}", type=discord.ActivityType.streaming, url="https://twitch.tv/testu"))
 
     @tasks.loop(seconds=10)
     async def presence_loop(self):
