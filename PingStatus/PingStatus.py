@@ -28,7 +28,7 @@ class PingActivity(commands.Cog):
         """testù"""
     #await self._set_presence()
     logger.debug("testù")
-    before_presence_loop
+    presence_loop
             
 
 def setup(bot):
