@@ -34,7 +34,7 @@ class PingActivity(commands.Cog):
     async def pst(self,ctx):
         """Boh"""
         await ctx.send("ok")
-        await self._set_presence
+        await self._set_presence()
             
 
 def setup(bot):
