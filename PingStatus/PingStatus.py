@@ -23,6 +23,13 @@ class PingActivity(commands.Cog):
     async def before_presence_loop(self):
         await self._set_presence()
         await self.bot.wait_until_ready()
+
+    @bot.event
+    async def on_ready(self):
+        """testù"""
+    #await self._set_presence()
+    logger.debug("testù")
+    before_presence_loop
             
 
 def setup(bot):
