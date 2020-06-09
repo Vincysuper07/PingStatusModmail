@@ -26,15 +26,15 @@ class PingActivity(commands.Cog):
 
     async def on_ready(self):
         """testù"""
-    await self._set_presence()
-    logger.debug("testù")
-    #before_presence_loop
+        #await self._set_presence()
+        logger.debug("testù")
+        before_presence_loop
     
     @commands.command()
     async def pst(self,ctx):
         """Boh"""
-    await ctx.send("ok")
-    await self._set_presence
+        await ctx.send("ok")
+        await self._set_presence
             
 
 def setup(bot):
