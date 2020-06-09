@@ -24,7 +24,6 @@ class PingActivity(commands.Cog):
         await self._set_presence()
         await self.bot.wait_until_ready()
 
-    @bot.event
     async def on_ready(self):
         """testù"""
     #await self._set_presence()
